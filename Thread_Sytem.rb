@@ -5,7 +5,7 @@
 #==============================================================================
 
 $imported = {} if $imported.nil?
-$imported["dodger451-ThreatSystem"] = false
+$imported["dodger451-ThreatSystem"] = true
 
 #==============================================================================
 # ▼ Introduction
@@ -41,7 +41,7 @@ module DODGER451
     # In this section, you can adjust the threat settings for your game
     # such as the modifiers and constants for threat manipulation
     #=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-    DEBUG_ON     = true   
+    DEBUG_ON     = false
 
   end # THREAT
 end # DODGER451
