@@ -5,7 +5,7 @@
 #==============================================================================
 
 $imported = {} if $imported.nil?
-$imported["dodger451-ThreatSystem"] = true
+$imported["dodger451-ThreatSystem"] = false
 
 #==============================================================================
 # ▼ Introduction
@@ -41,7 +41,7 @@ module DODGER451
     # In this section, you can adjust the threat settings for your game
     # such as the modifiers and constants for threat manipulation
     #=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-    DEBUG_ON     = false
+    DEBUG_ON     = true   
 
   end # THREAT
 end # DODGER451
@@ -221,14 +221,12 @@ end # Game_Battler
 class Game_Action
   alias game_actiontargets_for_opponents_ga targets_for_opponents
   def targets_for_opponents
+    original = game_actiontargets_for_opponents_ga
     if (!item.for_random? && item.for_one? && (@target_index < 0))
-      
-      
       num = 1 + (attack? ? subject.atk_times_add.to_i : 0)
       return [$game_threat.random_target(subject)] * num
     end
-    game_actiontargets_for_opponents_ga
-    
+    return original
   end
 end # Game_Action
 
