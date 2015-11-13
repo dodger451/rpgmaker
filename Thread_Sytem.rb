@@ -208,6 +208,8 @@ class Game_Battler < Game_BattlerBase
   end
 
   def update_threat_on_execute_damage(user)
+    # fix as suggested by gstv87 in http://forums.rpgmakerweb.com/index.php?/topic/48155-threat-based-targeting/#entry498845
+    return if $game_threat.nil?
     
     if (self.is_a?(Game_Enemy) && user.is_a?(Game_Actor))
       $game_threat.update_threat_on_damage(@result, user, self)
